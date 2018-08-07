@@ -1,5 +1,38 @@
 
 button{
-    color:#900;
-    font-weight:bold;
+    color:#900 !important;
+    font-weight:bold !important;
+}
+
+input[type=text] {
+    border: none;
+    border-bottom: 2px solid red;
+    background-color: white;
+}
+
+input[type=text]:focus,input:-webkit-autofill{
+    background-color: white !important;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 2px    !important;
+    font: inherit;
+    color: inherit;
+}
+
+.weather__error {
+    color: #f16051;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 200;
+}
+
+.weather__details{
+    color: #900;
+    border-bottom: solid 2px rgba(255,255,255,0.06);
+    padding: 20px 0 20px 0;
+    font-weight: 700;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    padding-left: 20px;
 }

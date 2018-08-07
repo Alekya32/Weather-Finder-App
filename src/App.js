@@ -2,6 +2,11 @@ import React from 'react';
 import Title from './component/Title';
 import Form from './component/Form';
 import Weather from './component/Weather';
+// import Home from './component/Home';
+// import Error from './component/Error';
+// import Navigation from './component/Navigation';
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
+
 
 const KEY="22a085d70cfff55db6e7e0719fb42e22";
 
@@ -12,9 +17,10 @@ class App extends React.Component{ // initializing a Component
     country:undefined,
     humidity:undefined,
     description:undefined,
-    error:undefined
+    error:undefined,
+    
   }
-
+  
   //Instead of calling a constructor we are writing an arrow function
   getWeather = async(e) =>{
       e.preventDefault(); // To prevent default behaviour of getWeather() method
@@ -22,7 +28,7 @@ class App extends React.Component{ // initializing a Component
       const country=e.target.elements.country.value;
       const api_call=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${KEY}&units=metric`);
       const data = await api_call.json();
-
+      
      if(city && country){
       console.log(data);
       this.setState({
@@ -45,20 +51,29 @@ class App extends React.Component{ // initializing a Component
     })
     }
   }
+  
   render(){
     return(
+      // <BrowserRouter>
       <React.Fragment>
-        <Title/>  
-        <Form getWeather={this.getWeather}/> {/* now we can have access to getweather function in Form Component */}
-        <Weather 
-          temperature={this.state.temperature}
-          city={this.state.city}
-          country={this.state.country}
-          humidity={this.state.humidity}
-          description={this.state.description}
-          error={this.state.error}
-        />
-      </React.Fragment>
+        {/* <Navigation/> */}
+          {/* <Switch> */}
+            {/* <Route path="/" component={Home} exact/>
+            <Route path="/Weather" component={Weather}/>  
+            <Route component={Error} />   */}
+            <Title/>  
+            <Form getWeather={this.getWeather}/> {/* now we can have access to getweather function in Form Component */}
+            <Weather 
+              temperature={this.state.temperature}
+              city={this.state.city}
+              country={this.state.country}
+              humidity={this.state.humidity}
+              description={this.state.description}
+              error={this.state.error}
+            />
+          {/* </Switch>     */}
+        </React.Fragment>     
+      // </BrowserRouter> 
     );
   }
 };

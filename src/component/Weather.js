@@ -3,15 +3,15 @@ import React from 'react';
 // If we  want to return only elment then alternative way
       const Weather =(props) =>(
         <React.Fragment>
-                     {props.city && props.country && <p> Location: {props.city}, {props.country}</p>}
+                     {props.city && props.country && <p className="weather__details"> Location: {props.city}, {props.country}</p>}
                     
-                     {props.temperature && <p>Temperature: {props.temperature}</p>}
+                     {props.temperature && <p className="weather__details">Temperature: {props.temperature}</p>}
                                     
-                     {props.humidity && <p> Humidity:{props.humidity}</p>}
+                     {props.humidity && <p className="weather__details"> Humidity:{props.humidity}</p>}
                                 
-                     {props.description && <p>Conditions:{props.description}</p>}
+                     {props.description && <p className="weather__details">Conditions:{props.description}</p>}
                                 
-                     {props.error && <p>{props.error}</p>}
+                     {props.error && <p className="weather__error">{props.error}</p>}
         </React.Fragment>
       );
 
